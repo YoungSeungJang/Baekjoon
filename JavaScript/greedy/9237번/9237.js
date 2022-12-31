@@ -23,7 +23,14 @@
 let n = 6; 
 let arr = [39, 38, 9, 35, 39, 20];
 arr.sort((a,b)=>{
-    if(a>b) return -1;
-    if(a<b) return 1;
+    if(a>b) return 1;
+    if(a<b) return -1;
     if(a==b) return 0;
 });
+
+console.log(arr);
+for(let i=0;i<arr.length;i++){
+    arr[i] -= (i);
+}
+
+console.log(Math.max(...arr)+n+1);
