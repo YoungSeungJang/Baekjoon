@@ -24,8 +24,9 @@
 let screen = 5;
 let fruits = [1, 5, 3];
 let boxLeft = 1;
-let boxRight = 2;
+let boxRight = 1;
 let cnt = 0;
+let boxGap = boxRight-boxLeft;
 
 
 
@@ -33,11 +34,11 @@ for (let i = 0; i < fruits.length; i++) {
     if(boxRight<fruits[i]){
         cnt += fruits[i] - boxRight;
         boxRight = fruits[i];
-        boxLeft = fruits[i] - (boxRight-1);
+        boxLeft = fruits[i] - (boxGap);
     } else if(boxLeft > fruits[i]){
         cnt += boxLeft - fruits[i];
         boxLeft = fruits[i];
-        boxRight = fruits[i] + (boxRight-1);
+        boxRight = fruits[i] + (boxGap);
     }
 }
 
