@@ -42,30 +42,16 @@
 */
 
 let input = 4200;
-let coin = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 50000];
-let index = 0;
-let coinCnt = [];
-let min;
-let rest;
-// for (let i = 0; i < coin.length; i++) {
-//     coinCnt.push(Math.floor(input / coin[i]));
-// }
-// console.log(coinCnt);
-// console.log(coinCnt.findIndex(a=> a==0));
+let coins = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000, 50000];
+let count = 0;
 
 
-// // 0이 최초로나온 index-1번째 로 나눴을때가 제일 적다.
-// let index = coinCnt.findIndex(a=> a==0);
+coins.reverse();
+for(let coin of coins){
+    if(input == 0) break;
 
-// min = coinCnt[index-1];
-
-// rest = input % coin[index-1];
-while(Math.floor(input / coin[index])!=0){
-    index++;
-    rest = input % coin[index-1];p
+    count += Math.floor(input / coin);
+    input %= coin;
 }
-console.log(rest, index);
 
-while(rest != 0){
-    
-}
+console.log(count);
