@@ -28,14 +28,14 @@
 6
 */
 
-let score = [5, 3, 7, 5];
-let gap = score.map(a=>a);
+let score = [5, 5, 5];
+// let gap = score.map(a=>a);
 let count = 0;
 
 for (let i = score.length-1; i >= 1; i--) {
     if(score[i]<= score[i-1]){
+        count += score[i-1] - score[i] + 1;
         score[i-1] = score[i]-1;
-        count += gap[i-1] - score[i-1];
     }
 }
 
