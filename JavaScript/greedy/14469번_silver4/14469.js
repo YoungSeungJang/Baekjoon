@@ -36,4 +36,5 @@ for(let i=0;i<arr1.length-1;i++){
         time += arr2[i+1];
     }
 }
+
 console.log(time);
