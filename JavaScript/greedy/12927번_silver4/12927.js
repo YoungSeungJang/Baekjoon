@@ -29,36 +29,19 @@ YYYNYYYNYYYNYYNYYYYN
 4
 */
 
-let input = ['Y', 'N', 'Y', 'N', 'Y', 'N', 'Y', 'N', 'Y'];
+// let input = ['Y', 'N', 'Y', 'N', 'Y', 'N', 'Y', 'N', 'Y'];
+let input = ['Y','Y','Y','N','Y','Y','Y','N','Y','Y','Y','N','Y','Y','N','Y','Y','Y','Y','N'];
 let cnt = 0;
 for(let i=0;i<input.length;i++){
-    if(input[i] == 'Y'){
+    if(input[i]=='Y'){
+        for(let j=i;j<input.length;j+=(i+1)){
+            if(input[j]=='Y'){
+                input[j]='N';
+            }else {
+                input[j]='Y';
+            }
+        }
         cnt++;
     }
 }
 console.log(cnt);
-
-let change = 0;
-while(cnt>0){
-    let repeat = 0;
-    for(let i=0;i<input.length;i++){
-        if(input[i]=='Y'){
-            repeat = i+1;
-            break;
-        }
-    }
-
-    for(let i=repeat;i<input.length;i+=repeat){
-        if(input[i]=='Y'){
-            input[i]='N';
-            cnt--;
-        }else{
-            input[i]='Y';
-            cnt++;
-        }
-    }
-
-    change++;
-}
-
-console.log(change);
