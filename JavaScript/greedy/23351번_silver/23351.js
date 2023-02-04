@@ -39,28 +39,36 @@ $N$의 약수)
 3
 */
 
+// 모든캣닢이 살아있는기간이 최대가 되도록 하려면 a개의 화분에 b만큼 주고 sort를 해주면된다!!!!
+
 let input = [3, 3, 3, 3, 3, 3];
 let alive = true;
 let a = 2;
 let b = 2;
-let i = 0;
+
 let day = 0;
 while(alive){
-    for(i;i<i+a;i++){
+    for(let i=0;i<a;i++){
         input[i] += b;
     }
-    if(i>=6){
-        i = 0;
-    }else {
-        i += 2;
-    }
-    day++;
+    
     for(let i=0;i<input.length;i++){
-        if(input[i] ==0){
+        input[i] -= 1;
+    }
+
+    console.log(input);
+    
+    for(let i=0;i<input.length;i++){
+        if(input[i] == 0){
             alive = false;
+        }else {
+            input.sort((a, b)=> a-b);
         }
     }
-
+    day += 1;
+    
 }
-
 console.log(day);
+
+// 문제를 이해하는데 시간이 조금걸렸고 캣닢이 살아있는기간이 최대가 되기위해 sort에 접근한다는 생각을 해내지못했다
+
