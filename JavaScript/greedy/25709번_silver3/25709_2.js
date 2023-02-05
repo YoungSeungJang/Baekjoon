@@ -29,32 +29,40 @@
 1
 */
 
-let input = 105;
-let check = true;
+// 문제는 풀만할거같았는데 뭔가 어려웠던 문제
+
+let input = 506;
 let count = 0;
-let strInput = String(input)
-  .split('')
-  .map((item) => Number(item));
-// console.log(strInput);
+let check = true;
+
+let arr = String(input).split('');
 
 while (check) {
-  for (let i = 0; i < strInput.length; i++) {
-    if (strInput[i] == 1) {
-      const index = strInput.findIndex((item) => item == 1);
-      strInput.splice(index, 1);
-      count++;
-      console.log('if', strInput);
-    } else {
-      strInput[strInput.length - 1] -= 1;
-      console.log('else', strInput);
-      count++;
+  if (String(input).includes('1')) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i] == 1) {
+        const index = arr.findIndex((item) => item == 1);
+        arr.splice(index, 1);
+        input = arr.join('');
+        if(input==0){
+            check = false;
+            count++
+            break;
+        }
+        count++;
+      }
     }
+  } else {
+    input--;
+    arr = String(input).split('');
+    count++;
   }
-  if (strInput.length==1 && strInput[0] == 0) {
+
+  if (arr.length == 0) {
     check = false;
   }
 }
 
-// let a = 123;
-// let b = String(a).split('').join('');
 console.log(count);
+
+
