@@ -11,4 +11,28 @@
 const a = 3;
 const b = 5;
 
-let input = 18;
+let input = 11;
+
+if (input <= 5 && (input % a && input % b) !== 0) {
+  return console.log(-1);
+}
+
+// if (input > 5 && input % b === 2) {
+//   return console.log(-1);
+// }
+
+let num1 = Math.floor(input / b);
+let num2 = 0;
+input = input % b;
+for (let i = num1; i > 0; i--) {
+  if (num1 === 0) return console.log(-1);
+  if (input % a !== 0) {
+    num1--;
+    input += b;
+  }
+  if (input % a === 0) {
+    num2 = input / a;
+  }
+}
+
+console.log(num1 + num2);
